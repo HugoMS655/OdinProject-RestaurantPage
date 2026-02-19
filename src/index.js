@@ -2,31 +2,23 @@ import "./styles/styles.css";
 
 const mainContent = document.querySelector("#content");
 
-const headerNav = document.querySelectorAll("#nav-menu");
+const headerNav = document.querySelector("#nav-menu");
 
-headerNav.addEventListeners("click", (event) => {
+headerNav.addEventListener("click", (event) => {
   if (event.target.classList.contains("header-btn")) {
-    switch (event.target.id) {
-      case "home-btn":
-        drawHomeTab();
-        break;
-      case "menu-btn":
-        drawMenuTab();
-        break;
-      case "about-btn":
-        drawAboutUsTab();
-        break;
-      case "contact-btn":
-        drawContactTab();
-        break;
-    }
+    drawTabs(event.target.id);
   }
 });
 
-function drawHomeTab() {}
-
-function drawMenuTab() {}
-
-function drawAboutUsTab() {}
-
-function drawContactTab() {}
+function drawTabs(id) {
+  switch (id) {
+    case "home-btn":
+      break;
+    case "menu-btn":
+      break;
+    case "about-btn":
+      break;
+    case "contact-btn":
+      break;
+  }
+}
