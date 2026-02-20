@@ -1,4 +1,5 @@
 import "./styles/styles.css";
+import { drawHomePage } from "./modules/home.js";
 
 const mainContent = document.querySelector("#content");
 
@@ -11,14 +12,22 @@ headerNav.addEventListener("click", (event) => {
 });
 
 function drawTabs(id) {
+  mainContent.innerHTML = ""; //to clean the content already present
   switch (id) {
     case "home-btn":
+      drawHomePage(mainContent);
       break;
     case "menu-btn":
       break;
     case "about-btn":
       break;
+    case "crew-btn":
+      break;
+    case "gallery-btn":
+      break;
     case "contact-btn":
+      break;
+    case "redacted-btn":
       break;
   }
 }
