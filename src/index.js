@@ -22,3 +22,5 @@ function drawTabs(id) {
       break;
   }
 }
+
+drawTabs("home-btn");
