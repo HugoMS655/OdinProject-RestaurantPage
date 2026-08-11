@@ -5,7 +5,6 @@ export function drawHomePage(mainContent) {
   drawCorporateSection(homeContainer);
   drawWhyVisitSection(homeContainer);
   drawFeaturedDishesSection(homeContainer);
-  drawFooterSection(homeContainer);
   mainContent.appendChild(homeContainer);
 }
 
@@ -21,11 +20,10 @@ function drawHeroSection(homeContainer) {
 
   const subSlogan = document.createElement("em");
   subSlogan.textContent = "— and physics will make sure of it";
-  slogan.appendChild(subSlogan);
 
-  const homeImage = document.createElement("img");
-  homeImage.src = heroImage;
-  homeImage.alt = "Event Horizon Eatery";
+  //const homeImage = document.createElement("img");
+  //homeImage.src = heroImage;
+  //homeImage.alt = "Event Horizon Eatery";
 
   const reservationBtn = document.createElement("button");
   reservationBtn.textContent = "Make a Reservation";
@@ -33,7 +31,8 @@ function drawHeroSection(homeContainer) {
 
   section.appendChild(title);
   section.appendChild(slogan);
-  section.appendChild(homeImage);
+  slogan.appendChild(subSlogan);
+  //section.appendChild(homeImage);
   section.appendChild(reservationBtn);
 
   homeContainer.appendChild(section);
@@ -57,12 +56,21 @@ function drawCorporateSection(homeContainer) {
   intro2.textContent =
     "Event Horizon Eatery represents our commitment to culinary excellence, customer satisfaction, and shareholder value — in that order, mostly.";
 
+  const missionContainer = document.createElement("div");
+  missionContainer.classList.add("corporate-mission");
+
   const missionTitle = document.createElement("h3");
   missionTitle.textContent = "Our Mission";
 
   const mission = document.createElement("p");
   mission.textContent =
     "To provide the highest quality dining experience permitted by current galactic regulations, at a price point that remains competitive within acceptable profit margins.";
+
+  missionContainer.appendChild(missionTitle);
+  missionContainer.appendChild(mission);
+
+  const valuesContainer = document.createElement("div");
+  valuesContainer.classList.add("corporate-values");
 
   const valuesTitle = document.createElement("h3");
   valuesTitle.textContent = "Our Values";
@@ -89,6 +97,7 @@ function drawCorporateSection(homeContainer) {
   const valuesList = document.createElement("ul");
   values.forEach(({ title, text }) => {
     const li = document.createElement("li");
+    li.classList.add("corporate-value");
     const strong = document.createElement("strong");
     strong.textContent = title + " — ";
     li.appendChild(strong);
@@ -96,14 +105,16 @@ function drawCorporateSection(homeContainer) {
     valuesList.appendChild(li);
   });
 
+  valuesContainer.appendChild(valuesTitle);
+  valuesContainer.appendChild(valuesList);
+
   section.appendChild(title);
   section.appendChild(subtitle);
   section.appendChild(intro);
   section.appendChild(intro2);
-  section.appendChild(missionTitle);
-  section.appendChild(mission);
-  section.appendChild(valuesTitle);
-  section.appendChild(valuesList);
+
+  section.appendChild(missionContainer);
+  section.appendChild(valuesContainer);
 
   homeContainer.appendChild(section);
 }
@@ -133,7 +144,8 @@ function drawWhyVisitSection(homeContainer) {
     },
   ];
 
-  section.appendChild(title);
+  const cardsContainer = document.createElement("div");
+  cardsContainer.classList.add("why-cards");
 
   reasons.forEach(({ emoji, title, text }) => {
     const card = document.createElement("div");
@@ -151,8 +163,12 @@ function drawWhyVisitSection(homeContainer) {
     card.appendChild(cardEmoji);
     card.appendChild(cardTitle);
     card.appendChild(cardText);
-    section.appendChild(card);
+
+    cardsContainer.appendChild(card);
   });
+
+  section.appendChild(title);
+  section.appendChild(cardsContainer);
 
   homeContainer.appendChild(section);
 }
@@ -184,7 +200,8 @@ function drawFeaturedDishesSection(homeContainer) {
     },
   ];
 
-  section.appendChild(title);
+  const cardsContainer = document.createElement("div");
+  cardsContainer.classList.add("dish-cards");
 
   dishes.forEach(({ name, description, price }) => {
     const card = document.createElement("div");
@@ -203,30 +220,12 @@ function drawFeaturedDishesSection(homeContainer) {
     card.appendChild(dishName);
     card.appendChild(dishDescription);
     card.appendChild(dishPrice);
-    section.appendChild(card);
+
+    cardsContainer.appendChild(card);
   });
 
+  section.appendChild(title);
+  section.appendChild(cardsContainer);
+
   homeContainer.appendChild(section);
-}
-
-function drawFooterSection(homeContainer) {
-  const footer = document.createElement("footer");
-  footer.classList.add("home-footer");
-
-  const closing = document.createElement("p");
-  closing.textContent =
-    "Thank you for choosing Void Industries. You didn't, really. But thank you anyway.";
-
-  const disclaimer = document.createElement("p");
-  disclaimer.textContent =
-    "Void Industries Inc. is not responsible for any temporal, gravitational, or existential side effects experienced at any of our establishments. Event Horizon Eatery is a subsidiary of Void Industries Inc., which is a subsidiary of Outer Darkness Holdings, which is a subsidiary of an entity we have been advised not to name publicly.";
-
-  const copyright = document.createElement("p");
-  copyright.textContent =
-    "Event Horizon Eatery is a subsidiary of Void Industries Inc. All rights reserved across all known timelines.";
-
-  footer.appendChild(closing);
-  footer.appendChild(disclaimer);
-  footer.appendChild(copyright);
-  homeContainer.appendChild(footer);
 }

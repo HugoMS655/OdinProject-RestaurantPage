@@ -1,5 +1,5 @@
-import "./styles/styles.css";
 import { drawHomePage } from "./modules/home.js";
+import { drawAboutUs } from "./modules/aboutus.js";
 
 const mainContent = document.querySelector("#content");
 
@@ -20,6 +20,7 @@ function drawTabs(id) {
     case "menu-btn":
       break;
     case "about-btn":
+      drawAboutUs(mainContent);
       break;
     case "crew-btn":
       break;
