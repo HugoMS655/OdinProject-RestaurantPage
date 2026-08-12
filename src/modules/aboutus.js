@@ -83,6 +83,7 @@ function drawDetails(aboutUsContainer) {
 
 function drawTagline(aboutUsContainer) {
   const tagline = document.createElement("p");
+  tagline.classList.add("tagline");
   tagline.textContent =
     "Event Horizon Eatery — Because you deserve the best. And if not the best, at least the closest.";
 

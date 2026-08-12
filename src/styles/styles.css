@@ -102,8 +102,6 @@ body {
   margin-bottom: var(--space-lg);
   padding: var(--space-md);
   border-left: 2px solid var(--gold);
-  padding: var(--space-md);
-  border-left: 2px solid var(--gold);
 }
 
 .corporate-values ul {
@@ -113,7 +111,6 @@ body {
   gap: var(--space-md);
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .corporate-value {
@@ -151,6 +148,121 @@ body {
   padding: var(--space-md);
   background-color: var(--surface);
   border: 1px solid var(--border);
+}
+
+.about-section {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+/* Intro */
+
+.intro-section {
+  min-height: 40vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.intro-section h1 {
+  margin-bottom: var(--space-md);
+  color: var(--gold);
+  font-size: 3rem;
+}
+
+.intro-section p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+/* Story */
+
+.story-section {
+  padding: var(--space-lg) 0;
+}
+
+.story-section h2,
+.details-section h2,
+.disclaimer-section h2 {
+  margin-bottom: var(--space-md);
+  color: var(--gold);
+}
+
+.story-section p {
+  max-width: 900px;
+  margin-bottom: var(--space-md);
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Details */
+
+.details-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+}
+
+.location-container,
+.chefs-container {
+  padding: var(--space-md);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.location-container p,
+.chefs-container p {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Tagline */
+
+.tagline {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md);
+  border-left: 2px solid var(--gold);
+  color: var(--text);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* Disclaimer */
+
+.disclaimer-section {
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+}
+
+.disclaimer-section p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .about-section {
+    padding: var(--space-md);
+  }
+
+  .intro-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .details-section {
+    grid-template-columns: 1fr;
+  }
 }
 
 .site-footer {
